@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: '4u-bindumathi';
-  src: url('./assets/fonts/4u-bindumathi.ttf') format('ttf');
+  src: url('./assets/fonts/4u-bindumathi.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -35,6 +35,7 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden;
   font: 400 15px/1.5 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column;
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 32px); align-items: center; height: max-content; }
@@ -56,7 +57,7 @@ body {
 .brand__sub { margin: 0; font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* Controls */
-.main { padding-block: clamp(20px, 4vw, 40px); }
+.main { flex: 1; padding-block: clamp(20px, 4vw, 40px); }
 .mode { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; }
 .mode__status { display: none; }
 .seg { display: flex; padding: 4px; gap: 4px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); max-width: 100%; }
@@ -96,6 +97,7 @@ body {
   background: transparent; color: var(--text); font: 400 var(--fs-text)/1.8 "FM Abhaya", "Iskoola Pota", "Noto Sans Sinhala", Inter, system-ui, sans-serif;
 }
 .pane__text--out { font-family: "4u-bindumathi", "FMAbhaya", "FM Abhaya", "JetBrains Mono", ui-monospace, monospace; background: color-mix(in srgb, var(--hover) 50%, transparent); }
+.pane__text--out:placeholder-shown { font-family: inherit; }
 .stats { font: 500 12px "JetBrains Mono", ui-monospace, monospace; color: var(--muted); }
 .note { margin: 16px 0 0; text-align: center; font-size: 12px; color: var(--muted); }
 .footer { padding-block: 0 24px; }
