@@ -3,7 +3,7 @@ import { unicodeToFMAbhaya, fmAbhayaToUnicode } from "./fmAbhayaEngine.js";
 
 const $ = (id) => document.getElementById(id);
 const src = $("src"), out = $("out");
-const SAMPLE = "ශ්‍රී ලංකා ප්‍රජාතාන්ත්‍රික සමාජවාදී ජනරජය.";
+
 
 let toFM = true;
 
@@ -22,6 +22,7 @@ function setMode(next, { swapText = false } = {}) {
   $("mode-fm").setAttribute("aria-pressed", String(!toFM));
   $("src-title").textContent = toFM ? "Unicode input" : "FMAbhaya input";
   $("out-title").textContent = toFM ? "FMAbhaya output" : "Unicode output";
+  $("direction-status").textContent = toFM ? "Unicode → FMAbhaya" : "FMAbhaya → Unicode";
   out.classList.toggle("pane__text--out", toFM);
   src.classList.toggle("pane__text--out", !toFM);
   if (swapText) src.value = carry;
@@ -66,5 +67,4 @@ $("theme-btn").addEventListener("click", () => {
   try { localStorage.setItem("theme", root.dataset.theme); } catch {}
 });
 
-src.value = SAMPLE;
 convert();
